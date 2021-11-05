@@ -1,0 +1,81 @@
+nav {
+  background-color: #26C8DD;
+}
+  
+nav ul {
+  list-style: none;
+  overflow: hidden; 
+}
+  
+nav ul li {
+  display: flex;
+  float: left;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+  
+nav ul li a {
+  display: block;
+  padding: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.form-login {
+  width: 400px;
+  background: #ffffff;
+  padding: 30px;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 4px;
+  font-family: 'calibri';
+  color: black;
+  box-shadow: 7px 13px 37px;
+}
+
+.form-login h4{
+  font-size: 22px;
+  margin-bottom: 20px;
+} 
+
+.controls{
+  width: 100%;
+  background: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border-left: 1px solid black;
+  font-family: 'calibri';
+  font-size: 18px;
+}
+
+.form-login p{
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.form-login a{
+  text-decoration: none;
+}
+
+.form-login a:hover{
+  text-decoration: underline;
+}
+
+.form-login .botons{
+  width: 100%;
+  background: #1f53c5;
+  border: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
+}
+
+#nav1{
+  margin-top: 10px;
+  color:#fff;
+  display: flex;
+}
+
+
