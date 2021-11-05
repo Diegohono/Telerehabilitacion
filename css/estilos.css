@@ -1,28 +1,26 @@
 nav {
-  background-color: #26C8DD;
+  background-color: #26C8DD; /*Se le da el color al nav*/
 }
-  
+
 nav ul {
   list-style: none;
   overflow: hidden; 
 }
   
 nav ul li {
-  display: flex;
-  float: left;
   font-family: Arial, sans-serif;
   font-size: 16px;
 }
   
-nav ul li a {
-  display: block;
+nav  ul{
+  display: flex;
   padding: 20px;
   color: #fff;
   text-decoration: none;
 }
 
 .form-login {
-  width: 400px;
+  width: 500px;
   background: #ffffff;
   padding: 30px;
   margin: auto;
@@ -30,7 +28,7 @@ nav ul li a {
   border-radius: 4px;
   font-family: 'calibri';
   color: black;
-  box-shadow: 7px 13px 37px;
+  box-shadow: 7px 10px 30px;
 }
 
 .form-login h4{
@@ -63,11 +61,32 @@ nav ul li a {
   text-decoration: underline;
 }
 
-.form-login .botons{
-  width: 100%;
-  background: #1f53c5;
+.form-login .botons{ /*Botones para el formulario de login*/
+  width: 40%;
+  background-color: #BFBFBF;
   border: 12px;
-  color: white;
+  border-radius: 12px;
+  color: black;
+  margin: 16px 0;
+  font-size: 16px;
+}
+
+.botonsT{ /*Botones para tabla de kinesiologo*/
+  width: 40%;
+  background-color: #BFBFBF;
+  border: 12px;
+  border-radius: 12px;
+  color: black;
+  margin: 16px 0;
+  font-size: 16px;
+}
+
+.botons{
+  width: 15%;
+  background-color: #5AC6BF;
+  border: 12px;
+  border-radius: 12px;
+  color: black;
   margin: 16px 0;
   font-size: 16px;
 }
