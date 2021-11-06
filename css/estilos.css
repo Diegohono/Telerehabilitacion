@@ -81,6 +81,16 @@ nav  ul{
   font-size: 16px;
 }
 
+.botonsB{/*Botones parte inferior de la tabla del kinesiologo*/
+  width: 300px;
+  height:120px;
+  border: 12px;
+  border-radius: 12px;
+  color: black;
+  margin: 16px 0;
+  font-size: 16px;
+}
+
 .botons{
   width: 15%;
   background-color: #5AC6BF;
@@ -88,7 +98,12 @@ nav  ul{
   border-radius: 12px;
   color: black;
   margin: 16px 0;
-  font-size: 16px;
+  font-size: 20px;
+}
+
+.iconos{
+  width: 100px;
+  height: 100px;
 }
 
 #nav1{
