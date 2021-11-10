@@ -81,7 +81,8 @@ nav  ul{
   font-size: 16px;
 }
 
-.botonsB{/*Botones parte inferior de la tabla del kinesiologo*/
+
+.Crear-E{/*Botones parte inferior de la tabla del kinesiologo*/
   width: 300px;
   height:120px;
   border: 12px;
@@ -89,6 +90,19 @@ nav  ul{
   color: black;
   margin: 16px 0;
   font-size: 16px;
+  margin-right: 450px;
+  justify-content: space-between;
+}
+
+.Ver-E{/*Botones parte inferior de la tabla del kinesiologo*/
+  width: 300px;
+  height:120px;
+  border: 12px;
+  border-radius: 12px;
+  color: black;
+  margin: 16px 0;
+  font-size: 16px;
+  margin-right: 100px;
 }
 
 .botons{
@@ -96,9 +110,9 @@ nav  ul{
   background-color: #5AC6BF;
   border: 12px;
   border-radius: 12px;
-  color: black;
+  color: white;
   margin: 16px 0;
-  font-size: 20px;
+  margin-left: 650px;
 }
 
 .iconos{
@@ -111,5 +125,54 @@ nav  ul{
   color:#fff;
   display: flex;
 }
+/*Logo de duoc en el nav*/
+.Lduoc{
+  height: auto;
+}
 
+.barra-ind{
+  justify-content: space-between;
+}
 
+.pacientes{
+  text-align: left;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  margin-left: 100px;
+}
+
+.Cerrar-Sesion{
+
+  margin-left: 850px;
+
+}
+
+.Nombre-E{
+  display: flex;
+  justify-content: space-between;
+  margin-right: auto;
+}
+
+.columnas-arriba{
+  float: left;
+  margin-top: 200px;
+}
+
+.columnas-abajo{
+  margin-top: 200px;
+  margin-right: 200px;
+}
+
+.Volver{
+  width: 15%;
+  background-color: #5AC6BF;
+  border: 12px;
+  border-radius: 12px;
+  color: white;
+  margin: 16px 0;
+  float: left;
+}
+
+.input-nombre{
+  width: 300px;
+}
