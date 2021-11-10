@@ -28,21 +28,38 @@
 
     <br>
   <br>
-  <form name="form" id="formulario-login" action="index.html">
+  <form name="form" id="formulario-login">
     <section class="form-login ">
       <h4>Te damos la bienvenida al portal</h4>
-      <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su correo">
-      <input class="controls" type="password" name="contraseña" id="contraseña" placeholder="Ingrese su contraseña">
-      <input onclick=go() class="botons" type="submit" value="ingresar">
+      <input class="controls" type="text" name="usuario" id="usuario" placeholder="Ingrese su correo">
+      <input class="controls" type="password" name="password" id="contraseña" placeholder="Ingrese su contraseña">
+      <input value="ingresar" onclick="Login()" target="_parent" class="botons" type="button" >
     </section>
   </form>
 
-  <form id="formulario-login" >
-      <section class="form-login">
-            <a href="Paciente.html" class="botons">Paciente</a>
-            <a href="Kine.html" class="botons">Kinesiologo</a>
-      </section>
-  </form>
+
+  <script language="JavaScript"> 
+    function Login(){ 
+    var done=0; 
+    var usuario=document.form.usuario.value; 
+    var password=document.form.password.value; 
+    if (usuario=="USUARIO1" && password=="CONTRASEÑA1") { 
+    window.location="kine.html"; 
+    } 
+    if (usuario=="USUARIO2" && password=="CONTRASEÑA2") { 
+    window.location="Paciente.hmtl"; 
+    } 
+    if (usuario=="" && password=="") { 
+    window.location="errorpopup.html"; 
+    } 
+    } 
+            </script> 
+
+  <script language="Javascript"> 
+    //<!-- Begin 
+    document.oncontextmenu = function(){return false} 
+    // End --> 
+  </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
