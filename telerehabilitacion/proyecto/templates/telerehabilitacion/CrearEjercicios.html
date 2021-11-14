@@ -1,0 +1,30 @@
+{% extends 'telerehabilitacion/base.html' %}
+{% block content %}
+<head><title>Ejercicios</title></head>
+    <button class="Volver" onclick="location.href= 'kine.html'">Volver Atras</button>
+    <form >
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="columnas-arriba">
+                    <h5>Nombre del ejercicio</h5>
+                        <input type="text" class="input-nombre"> 
+                        <h5>Adjuntar Videos</h5>
+                        <input type="file" name="Foto/Video" />
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="columnas-abajo">
+                            <h5>Categoria</h5>
+                            <input type="text">
+                            <h5>Detalles Ejercicios</h5>
+                            <p><textarea name="Detalle-ejercicio" id="Detalle-ejercicio" cols="40" rows="10"></textarea></textarea></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    {% endblock %}
