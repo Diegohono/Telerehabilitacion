@@ -234,3 +234,31 @@ nav  ul{
 #Detalle-Paciente .row{
   padding-top: 30px;
 }
+
+#feedback .item{
+  text-align: center;
+  margin-top: 100px;
+}
+
+#feedback label{
+  display: block;
+}
+
+#empezarejercicio .item{
+  text-align: center;
+}
+
+.empezar-ejer{
+  text-align: center;
+}
+
+.boton-empezar-ejer{
+  width: 50px;
+  height: 50px;
+  background-color: #5AC6BF;
+  border: 12px;
+  border-radius: 12px;
+  color: white;
+  margin: 16px 0;
+  margin-left: 10px;
+}
