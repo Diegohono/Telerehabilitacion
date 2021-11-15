@@ -153,12 +153,12 @@ nav  ul{
   margin-right: auto;
 }
 
-.columnas-arriba{
+.primera-columna-ejer{
   float: left;
   margin-top: 200px;
 }
 
-.columnas-abajo{
+.segunda-columna-ejer{
   margin-top: 200px;
   margin-right: 200px;
 }
@@ -177,3 +177,32 @@ nav  ul{
   width: 300px;
 }
 
+#nuevoejercicio label{
+  display: block;
+}
+
+#nuevoejercicio .item{
+  margin-bottom: 30px;
+}
+
+#nuevopaciente label{
+  display: block;
+}
+
+#nuevopaciente .item{
+  margin-bottom: 30px;
+}
+
+.primera-columna-pac{
+  float: left;
+  margin-top: 100px;
+}
+
+.segunda-columna-pac{
+  margin-top: 100px;
+}
+
+.tercera-columnas-pac{
+  margin-top: 100px;
+  margin-left: 30px;
+}

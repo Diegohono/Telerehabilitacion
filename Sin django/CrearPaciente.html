@@ -23,38 +23,46 @@
     </header>
 
     <button class="Volver" onclick="location.href= 'kine.html'">Volver Atras</button>
-    <form id="nuevopaciente">
+    <form id="nuevoejercicio">
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <div class="primera-columna-ejer">
+                    <div class="primera-columna-pac">
                         <div class="item">
                             <label for="nombre">Nombre del ejercicio</label>
                             <input type="text" class="input-nombre" name="nombre">
                         </div>
                         <div class="item"> 
-                            <label for="Foto/Video">Adjuntar Videos</label>
-                            <input type="file" name="Foto/Video">
+                            <label for="correo">Correo</label>
+                            <input type="email" class="input-nombre" name="correo">
                         </div>    
-
+                        <div class="item">
+                            <label for="descripcion-paciente">Descripción de paciente</label>
+                            <textarea name="descripcion-paciente" id="Deta3lle-ejercicio" cols="40" rows="10" ></textarea>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <div class="segunda-columna-ejer">
+                        <div class="segunda-columna-pac">
                             <div class="item">
-                                <label for="Categoria">Categoria</label>
-                                <select name="Categoria">
-                                    <option selected value="0"> Elige una opción </option> 
-                                    <option value="1">Ejemplo1</option> 
-                                    <option value="2">Ejemplo2</option> 
-                                    <option value="3">Ejemplo3</option>
-                                </select>
+                                <label for="contrasena">Contraseña</label>
+                                <input type="password" class="input-nombre" name="contrasena">
                             </div>
                             <div class="item">
-                                <label for="Detalle-ejercicio">Detalles Ejercicios</label>
-                                <textarea name="Detalle-ejercicio" id="Detalle-ejercicio" cols="40" rows="10" ></textarea>
+                                <label for="cuidador">cuidador</label>
+                                <input type="text" class="input-nombre" name="cuidador">
                             </div>
+                        </div>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="col">
+                        <div class="tercera-columnas-pac">
+                            <div class="item"> 
+                                <label for="Foto/Video">Adjuntar Videos</label>
+                                <input type="file" name="Foto/Video">
+                            </div>    
                         </div>
                     </div>
                 </div>
