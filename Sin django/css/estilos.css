@@ -209,6 +209,9 @@ nav  ul{
 
 #Inicio-Paciente{
   display: block;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;  
 }
 
 #Inicio-Paciente .row{
@@ -219,4 +222,15 @@ nav  ul{
   width: 700px;
   height: 500px;
   float: right;
+}
+
+#Detalle-Paciente{
+  display: block;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;  
+}
+
+#Detalle-Paciente .row{
+  padding-top: 30px;
 }
