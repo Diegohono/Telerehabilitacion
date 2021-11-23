@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicios</title>
+    <title>Paciente</title>
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="https://kit.fontawesome.com/f1d55eea8b.js" crossorigin="anonymous"></script>
     <style type="text/css">
+		  body{text-align: center;}
 	</style>
 </head>
 <body>
@@ -21,22 +22,23 @@
             </ul>
         </nav>
     </header>
-
-
-    <div id="feedback">
-        <div class="item">
-            <h5> Cuéntanos como te has sentido con este ejercicio </h5>
-            <img src="img/Caritas.png">
+    <button class="Volver" onclick="location.href= 'Paciente.html'">Volver Atras</button>
+    <div>
+        <img class="rutina" src="img/ejercicio.JPG">
+    </div>
+    <div class="video">
+        <img class="video-img" src="img/video.JPG">
+    </div>
+    <div>
+        <div class="evidencia">
+            <label for="Foto/Video">Adjuntar Videos</label>
+            <input type="file" name="Foto/Video">
         </div>
-        <div class="item">
-            <label for="feedback">¿Tienes algun comentario?</label>
-            <textarea name="feedback" cols="60" rows="5" ></textarea>
+        <div class="evidencia">
+            <button class="molestias">¿Sientes molestias? <i class="fas fa-exclamation"></i></button>
+            <button class="next" onclick="location.href= 'feedback.html'"><i class="fas fa-chevron-right"></i></button>
         </div>
     </div>
-    <div class="next-feed-pos">
-    <button class="next-feed" onclick="location.href= 'Paciente.html'"><i class="fas fa-chevron-right"></i></button>
-    </div>
 
-    
 </body>
 </html>

@@ -208,19 +208,25 @@ nav  ul{
 }
 
 #Inicio-Paciente{
-  display: block;
+
   border-style: solid;
   border-width: thin;
-  border-color: black;  
+  border-color: black;
+  max-width: 600px;  
+  max-height: auto;
+  float: left;
+  margin-left: 10px;
 }
 
 #Inicio-Paciente .row{
+  margin-top: 10px;
   padding-bottom: 30px;
+  justify-content: space-between;
 }
 
 .graficoP{
-  width: 700px;
-  height: 500px;
+  width: 600px;
+  height: 400px;
   float: right;
 }
 
@@ -262,3 +268,78 @@ nav  ul{
   margin: 16px 0;
   margin-left: 10px;
 }
+
+.titulo-ejer{
+  margin-right: 700px;
+}
+
+.boton-iniciar-ejer{
+  margin-top: 100px;
+  width: 200px;
+  height: 50px;
+  background-color: #5AC6BF;
+  border: 12px;
+  border-radius: 12px;
+  color: white;
+  margin: 16px 0;
+  margin-right: 100px;
+}
+
+.boton-ejer{
+  margin-top: 350px;
+}
+
+.rutina{
+  margin-top: 80px;
+  float: left;
+}
+
+.video{
+  float: left;
+}
+
+.video-img{
+  margin-top: 10px;
+  margin-right: 70px;
+  margin-left: 100px;
+}
+
+.evidencia{
+  margin-top: 200px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.molestias{
+  height: 50px;;
+  background-color: #5AC6BF;
+  border: 12px;
+  border-radius: 12px;
+  color: white;
+  margin: 16px 0;
+}
+
+.next{
+  width: 100px;
+  height: 50px;;
+  background-color: #5AC6BF;
+  border: 12px;
+  border-radius: 12px;
+  color: white;
+  margin: 16px 0;
+}
+
+.next-feed{
+  width: 100px;
+  height: 50px;;
+  background-color: #5AC6BF;
+  border: 12px;
+  border-radius: 12px;
+  color: white;
+  margin: 16px 0;
+}
+
+.next-feed-pos{
+  margin-left: 655px;
+}
+
