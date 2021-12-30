@@ -1,0 +1,51 @@
+{% extends 'telerehabilitacion/base.html' %}
+{% block content %}
+
+<div>
+    <a href="{% url 'kine' %}"><button class="Volver" >Volver Atras</button></a> 
+</div>
+    <form id="nuevoejercicio" method="POST">
+        {% csrf_token %}
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="primera-columna-pac">
+                        <div class="item">
+                            <label for="nombre">Nombre Paciente</label>
+                            <input type="text" class="input-nombre" name="nombre">
+                        </div>
+                        <div class="item"> 
+                            <label for="paterno">Apellido Paterno</label>
+                            <input type="text" class="input-nombre" name="paterno">
+                        </div>    
+                        <div class="item">
+                            <label for="materno">Apellido Materno</label>
+                            <input type="text" class="input-nombre" name="materno">
+                        </div>
+                        <div class="item">
+                            <label for="materno">Contraseña</label>
+                            <input type="password" class="input-nombre" name="contraseña">
+ 
+
+                            <div class="item">
+                                <label for="fecha">Fecha de nacimiento</label>
+                                <input type="date" class="input-nombre" name="fecha">
+                            </div>
+                            <div class="item">
+                                <label for="numero">Numero de contacto</label>
+                                <input type="number" class="input-nombre" name="numero">
+                            </div>
+                            <div class="item">
+                                <label for="ciudad">Ciudad</label>
+                                <input type="text" class="input-nombre" name="ciudad">
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <input type="submit" class="inputbtn" name="btnGuardar" value="Registrar" name="crear_cuenta">
+        </div>
+    </form>
+    <p>{{txt}}</p>
+
+    {% endblock %}

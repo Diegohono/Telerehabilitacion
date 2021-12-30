@@ -23,9 +23,16 @@
         <nav>
             <ul class="barra-ind">
                 <li><img src="{% static 'img/logopomo.png' %}" width="160" height="auto" ></li>
-                <li><a href="index.html" style="color: white;" class="Cerrar-Sesion">Cerrar Sesion</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}" style="color: white;" class="Cerrar-Sesion">Cerrar Sesión</a></li>    
+                <li>
+                    <p>Bienvenido {{user.username}}</p>
+                </li>
+                {% endif %}
                 <li><img src="{% static 'img/Logo-Duoc.png' %}" width="160" class="Logo-d"></li>
             </ul>
+
+ 
         </nav>
     </header>
     <div class="content container">

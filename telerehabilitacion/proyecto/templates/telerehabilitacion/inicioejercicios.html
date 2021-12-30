@@ -1,0 +1,21 @@
+{% extends 'telerehabilitacion/base.html' %}
+{% block content %}
+<head> <title>Inicio</title></head>
+
+<button class="Volver" onclick="location.href= 'Paciente.html'">Volver Atras</button>
+<div id="feedback">
+    <div class="item">
+        <h5> ¿Estás listo? </h5>
+        <img src="img/medico.png">
+        <p>Empezarás el ejercicio hecho por el Doctor Bastián
+            Recuerda que debes adjuntar evidencias</p>
+    </div>
+</div>
+<br>
+<br>
+<div class="empezar-ejer">
+<p>En caso de sentir molestias puedes saltar el ejercicio   
+<button class="boton-empezar-ejer" onclick="location.href= 'rutina.html'"><i class="fas fa-chevron-right"></i></button></p>
+</div>
+
+    {% endblock %}

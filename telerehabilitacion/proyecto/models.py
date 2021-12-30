@@ -10,15 +10,15 @@ class Ciudad(models.Model):
     def __str__(self):
         return self.ciudad
 
+        
 class Usuario(models.Model):
-    user = models.OneToOneField(User, on_delete = models.CASCADE)
+    userD = models.OneToOneField(User, on_delete = models.CASCADE)
     nombre = models.CharField(max_length=15)
     a_paterno = models.CharField(max_length=15)
     a_materno = models.CharField(max_length=15)
     fecha_nacimiento =models.DateField()
     telefono = models.IntegerField()
     id_ciudad = models.ForeignKey(Ciudad,on_delete=models.CASCADE)
-
     class Meta:
         abstract = True
 

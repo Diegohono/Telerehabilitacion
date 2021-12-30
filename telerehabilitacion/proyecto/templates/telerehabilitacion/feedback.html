@@ -1,0 +1,18 @@
+{% extends 'telerehabilitacion/base.html' %}
+{% block content %}
+<head> <title>Opinion</title></head>
+
+<div id="feedback">
+    <div class="item">
+        <h5> Cuéntanos como te has sentido con este ejercicio </h5>
+        <img src="img/Caritas.png">
+    </div>
+    <div class="item">
+        <label for="feedback">¿Tienes algun comentario?</label>
+        <textarea name="feedback" cols="60" rows="5" ></textarea>
+    </div>
+</div>
+<div class="next-feed-pos">
+<button class="next-feed" onclick="location.href= 'Paciente.html'"><i class="fas fa-chevron-right"></i></button>
+</div>
+    {% endblock %}

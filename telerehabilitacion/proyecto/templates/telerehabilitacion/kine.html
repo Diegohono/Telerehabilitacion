@@ -4,47 +4,17 @@
     <section >
         <div>
             <table class="col-sm-9 offset-md-1">
-                <h5 class="pacientes">PACIENTES RECIENTES <button class="botons">Crear paciente</button></h5>
-
+                <h5 class="pacientes">PACIENTES RECIENTES </h5>
+                <a href="{% url 'crear_paciente' %}"><button class="botons">Crear paciente </button></a>
+                    {% for p in pac %}
                     <tr class="columna">
-                        <td>Matias Gajardo</td>
-                        <td>+56911111111</td>
-                        <td>Santiago</td>
-                        <td>Joaquín Rios</td>
-                        <td><a class="botonsT" href="VistaPKine.html">Detalles</a></td>
-                    </tr>
-                
-                    <tr>
-                        <td>Almendra Quiñones</td>
-                        <td>+56911111111</td>
-                        <td>Viña del Mar</td>
-                        <td>Julián Bastías</td>
-                        <td><a class="botonsT" href="">Detalles</a></td>
-                    </tr>
-                
-                    <tr>
-                        <td>Sebastián Jara</td>
-                        <td>+56911111111</td>
-                        <td>Villa Alemana</td>
-                        <td>Macarena Gonzáles</td>
-                        <td><a class="botonsT" href="">Detalles</a></td>
-                    </tr>
+                        <td>{{p.nombre}} {{p.a_paterno}} {{p.a_materno}}</td>
+                        <td>{{p.telefono}}</td>
+                        <td>{{p.idciudad}}</td>
 
-                    <tr>
-                        <td>Bastian Leyton</td>
-                        <td>+56911111111</td>
-                        <td>Viña del Mar</td>
-                        <td>Nicolás Oyarzún</td>
-                        <td><a class="botonsT" href="">Detalles</a></td>
+                        <td><a class="botonsT" href="{% url 'detalle_paciente' pk=p.pk %}">Detalles</a></td>
                     </tr>
-
-                    <tr>
-                        <td>Mauricio Figueroa</td>
-                        <td>+56911111111</td>
-                        <td>Viña del Mar</td>
-                        <td>Nataly Baeza</td>
-                        <td><a class="botonsT" href="">Detalles</a></td>
-                    </tr>
+                    {% endfor %}
                 </table>
         </div>
     </section>
@@ -52,7 +22,7 @@
         <section>
             <div>
                 <h4>EJERCICIOS</h4>
-                <button class="Crear-E" style="background-color: #77B9C1;" onclick="location.href='CrearEjercicios.html'">Crea tu ejercicio <i class=" fas fa-pencil-alt"></i></button>
+                <a href="{% url 'Crear_Ejercicio' %}"><button class="Crear-E" style="background-color: #77B9C1;" >Crea tu ejercicio <i class=" fas fa-pencil-alt"></i></button></a>
                 <button class="Ver-E">Ver tus ejercicios <i class="fas fa-eye"></i></button>
             </div>
         </section>

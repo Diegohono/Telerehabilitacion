@@ -1,0 +1,21 @@
+{% extends 'telerehabilitacion/base.html' %}
+{% block content %}
+<head><title>Paciente</title></head>
+<button class="Volver" onclick="location.href= 'Paciente.html'">Volver Atras</button>
+<div>
+    <img class="rutina" src="img/ejercicio.JPG">
+</div>
+<div class="video">
+    <img class="video-img" src="img/video.JPG">
+</div>
+<div>
+    <div class="evidencia">
+        <label for="Foto/Video">Adjuntar Videos</label>
+        <input type="file" name="Foto/Video">
+    </div>
+    <div class="evidencia">
+        <button class="molestias">¿Sientes molestias? <i class="fas fa-exclamation"></i></button>
+        <button class="next" onclick="location.href= 'feedback.html'"><i class="fas fa-chevron-right"></i></button>
+    </div>
+</div>
+    {% endblock %}

@@ -4,6 +4,7 @@
     <div class="titulo-ejer">
         <h5>Ejercicios</h5>
     </div>
+
     <div id="Inicio-Paciente" class="container">
         
         <div class="row">  
@@ -46,11 +47,8 @@
                 <a class="botonsT" href="">Ver Detalles</a> <i class="far fa-clock"></i>
             </div>
         </div>
-    </div>
-    <div class="col">
-        <img class="graficoP" src="img/graficoP.png" alt="grafico" >
-    </div>
-    <div class="boton-ejer">
-        <button class="boton-iniciar-ejer" onclick="location.href= 'inicioejercicios.html'">Iniciar ejercicio de hoy</button>
+        <div>
+            <a href="{% url 'kine' %}"><button class="Volver" >Volver Atrás</button></a> 
+        </div>
     </div>
     {% endblock %}
