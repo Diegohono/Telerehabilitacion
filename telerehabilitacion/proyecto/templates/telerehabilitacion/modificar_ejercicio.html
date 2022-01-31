@@ -1,0 +1,79 @@
+{% extends 'telerehabilitacion/base.html' %}
+{% block content %}
+<head><title>Crear Ejercicios</title></head>
+    <a class="Volver" href="javascript:history.back()"> Volver Atrás</a>
+    <form id="nuevopaciente"  method="POST">
+        {% csrf_token %}
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="primera-columna-ejer">
+                        <div class="item">
+                            <label for="nombre">Nombre del ejercicio</label>
+                            <input type="text" class="input-nombre" name="nombre" value="{{ejercicio}}" >
+                        </div>
+                        <div>
+                            <div class="card" style="width: 40rem;" >
+                                <div class="video card-img-top">
+                                  <video width="500" height="340" controls><source src="{{ejercicio.video.url}}" type="video/mp4"></video>
+                              </div>
+                        </div>
+                        <div class="item"> 
+                            <label for="Foto/Video">Cambiar video</label>
+                            <input type="file" name="Video">
+                        </div>    
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="segunda-columna-ejer">
+                            <!-- Consultar por categoria
+                         <div class="item">
+                                <label for="Categoria">Categoria</label>
+                                <select name="Categoria">
+                                    <option selected value="0"> Elige una opción </option> 
+                                    <option value="1">Ejemplo1</option> 
+                                    <option value="2">Ejemplo2</option> 
+                                    <option value="3">Ejemplo3</option>
+                                </select>
+                            </div>
+                                -->
+                            <div class="item">
+                                <label for="Detalle-ejercicio">Detalles Ejercicios</label>
+                                <textarea name="Detalle-ejercicio" id="Detalle-ejercicio" cols="40" rows="10" >{{ejercicio.detalle_ejercicio}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Modificar
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modificar ejercicio</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ¿Esta seguro que quiere modificar este ejercicio?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <input type="submit" class="btn btn-primary" name="btnGuardar" value="Modificar" name="modificar">
+        </div>
+      </div>
+    </div>
+  </div>
+                </div>
+               
+            </div>
+        </div>
+    </form>
+
+    {% endblock %}

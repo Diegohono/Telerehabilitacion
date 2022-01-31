@@ -3,27 +3,29 @@
 <head> <title>Kinesiologo</title></head>
     <section >
         <div>
-            <table class="col-sm-9 offset-md-1">
+            <table class="">
                 <h5 class="pacientes">PACIENTES RECIENTES </h5>
                 <a href="{% url 'crear_paciente' %}"><button class="botons">Crear paciente </button></a>
                     {% for p in pac %}
                     <tr class="columna">
                         <td>{{p.nombre}} {{p.a_paterno}} {{p.a_materno}}</td>
                         <td>{{p.telefono}}</td>
-                        <td>{{p.idciudad}}</td>
+                        <td>{{p.ciudad}}</td>
 
-                        <td><a class="botonsT" href="{% url 'detalle_paciente' pk=p.pk %}">Detalles</a></td>
+                        <td><a class="btn btn-outline-info btn-sm" href="{% url 'detalle_paciente' pk=p.pk %}">Detalles</a></td>
+                        <td><a class="btn btn-outline-danger btn-sm" href="{% url 'eliminar_paciente' id=p.pk %}">Eliminar </a></td>
                     </tr>
                     {% endfor %}
                 </table>
         </div>
     </section>
+    <br>
     <section>
         <section>
             <div>
                 <h4>EJERCICIOS</h4>
                 <a href="{% url 'Crear_Ejercicio' %}"><button class="Crear-E" style="background-color: #77B9C1;" >Crea tu ejercicio <i class=" fas fa-pencil-alt"></i></button></a>
-                <button class="Ver-E">Ver tus ejercicios <i class="fas fa-eye"></i></button>
+                <a href="{% url 'listar_ejercicios' %}"><button class="Crear-E" style="background-color: #adcdd1;" >Ver tus ejercicios<i class=" fas fa-eye"></i></button></a>
             </div>
         </section>
     </section>

@@ -1,20 +1,25 @@
 {% extends 'telerehabilitacion/base.html' %}
 {% block content %}
 <head> <title>Ejercicios</title></head>
-
-<button class="Volver" onclick="location.href= 'kine.html'">Volver Atras</button>
+<div class="Volver">
+    <a class="btn btn-info btn-sm text-light" href="{% url 'Paciente' %}"> Volver Atrás</a>
+</div>
 <div id="feedback">
+    <br><br><br>
     <div class="item">
         <h5> ¿Estás listo? </h5>
-        <img src="img/medico.png">
-        <p>Empezarás el ejercicio hecho por el Doctor Bastián
-            Recuerda que debes adjuntar evidencias</p>
+        {% for i in ejercicio %}
+        <img src="{{i.ejercicio.id_kinesiologo.foto.url}}" class="img-thumbnail" style="width: 18rem;">
+        <p>Empezarás el ejercicio hecho por el Médico {{i.ejercicio.id_kinesiologo.nombre}} {{i.ejercicio.id_kinesiologo.a_paterno}}</p>
+        <p> Recuerda que debes adjuntar evidencias</p>
     </div>
 </div>
 <br>
 <br>
-<div class="empezar-ejer">
+<div class="empezar-ejer border border-info border-4 rounded-pill">
+    <br>
 <p>En caso de sentir molestias puedes saltar el ejercicio   
-<button class="boton-empezar-ejer" onclick="location.href= ''"><i class="fas fa-chevron-right"></i></button></p>
+<a href="{% url 'rutina' pk=i.pk %}"><button class="btn btn-outline-primary"><i class="fas fa-chevron-right"></i></button></a></p>
 </div>
+        {% endfor %}    
     {% endblock %}

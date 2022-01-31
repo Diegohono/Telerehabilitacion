@@ -4,7 +4,7 @@
 <div>
     <a href="{% url 'kine' %}"><button class="Volver" >Volver Atras</button></a> 
 </div>
-    <form id="nuevoejercicio" method="POST">
+    <form id="nuevoejercicio" method="POST" >
         {% csrf_token %}
         <div class="container">
             <div class="row">
@@ -22,6 +22,10 @@
                             <label for="materno">Apellido Materno</label>
                             <input type="text" class="input-nombre" name="materno">
                         </div>
+                        <div class="item"> 
+                            <label for="">Rut</label>
+                            <input type="text" class="input-nombre" name="rut" placeholder="Con punto y guion">
+                        </div>    
                         <div class="item">
                             <label for="materno">Contraseña</label>
                             <input type="password" class="input-nombre" name="contraseña">
@@ -38,6 +42,10 @@
                             <div class="item">
                                 <label for="ciudad">Ciudad</label>
                                 <input type="text" class="input-nombre" name="ciudad">
+                            </div>
+                            <div class="item">
+                                <label for="ciudad">Foto</label>
+                                <input type="file" class="input-nombre" name="foto">
                             </div>
                         </div>
                     </div>

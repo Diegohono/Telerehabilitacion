@@ -1,0 +1,31 @@
+{% extends 'telerehabilitacion/base.html' %}
+{% block content %}
+<a class="Volver" href="javascript:history.back()"> Volver Atrás</a>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nombre ejercicios</th>
+        <th scope="col">Kinesiologo</th>
+        <th scope="col">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in ejercicio %}
+      <tr>
+        <td>{{i.nombre_ejercicio}}</td>
+        <td>{{i.id_kinesiologo.nombre}} {{i.id_kinesiologo.a_paterno}}</td>
+        <td><div class="btn-group" role="group" aria-label="Basic example">
+          <a class="btn btn-outline-info" href="{% url 'modificar_ejercicio' id=i.id %}">Modificar</a>
+          <a class="btn btn-outline-danger" href="{% url 'eliminar_ejercicio' id=i.id %}">Eliminar</a>
+        </div></td>
+      </tr>
+      
+
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'Crear_Ejercicio' %}"><button class="Crear-E" style="background-color: #77B9C1;" >Crea tu ejercicio <i class=" fas fa-pencil-alt"></i></button></a>
+
+
+
+{% endblock %}

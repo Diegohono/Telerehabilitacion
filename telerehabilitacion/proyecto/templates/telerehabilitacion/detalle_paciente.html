@@ -1,54 +1,33 @@
 {% extends 'telerehabilitacion/base.html' %}
 {% block content %}
-<head><title>Paciente</title></head>
-    <div class="titulo-ejer">
-        <h5>Ejercicios</h5>
-    </div>
+<head> <title>Detalle Semanal</title></head>
+    <a class="Volver" href="javascript:history.back()"> Volver Atrás</a>
 
-    <div id="Inicio-Paciente" class="container">
+
+<br>
+<br>
+<h4>Paciente: {{pa.nombre}} {{pa.a_paterno}}</h4>
+<img src="{{pa.foto.url}}" style="width: 18rem;" class="rounded mx-auto d-block" alt="...">
+<br>
+<br>
+
+<div class="container border border-info">
+    {% for i in lista %}
+    <div class="row justify-content-around">
         
-        <div class="row">  
-            <div class="col col-lg-2">
-                Semana 1
-            </div>  
-            <div class="col col-lg-4">
-                <a class="botonsT" href="Detalle-Semana.html">Ver Detalles</a> <i class="fas fa-check"></i>
-            </div>
+        <div class="col col-4  ">                
+            Semana {{i}}
         </div>
-        <div class="row">  
-            <div class="col col-lg-2">
-                Semana 2
-            </div>  
-            <div class="col col-lg-4">
-                <a class="botonsT" href="">Ver Detalles</a> <i class="fas fa-check"></i>
-            </div>
+        <div class="col col-4 ">
+            <a class="btn btn btn-outline-secondary btn-sm" href="{% url 'detalle_paciente_semanal' id=i pa=pa.pk %}">Ver Rutina</a>
         </div>
-        <div class="row">  
-            <div class="col col-lg-2">
-                Semana 3
-            </div>  
-            <div class="col col-lg-4">
-                <a class="botonsT" href="">Ver Detalles</a> <i class="far fa-clock"></i>
-            </div>
-        </div>
-        <div class="row">  
-            <div class="col col-lg-2">
-                Semana 4
-            </div>  
-            <div class="col col-lg-4">
-                <a class="botonsT" href="">Ver Detalles</a> <i class="far fa-clock"></i>
-            </div>
-        </div>
-        <div class="row">  
-            <div class="col col-lg-2">
-                Semana 5
-            </div>  
-            <div class="col col-lg-4">
-                <a class="botonsT" href="">Ver Detalles</a> <i class="far fa-clock"></i>
-            </div>
-        </div>
-        <div>
-            <a href="{% url 'kine' %}"><button class="Volver" >Volver Atrás</button></a> 
-        </div>
-    </div>
+        <br>
+      
+</div>
+
+{% endfor %}
+</div>
+<div>
+    <a href="{% url 'crear_rutina' id=pk %}"><button class="Crear-E" style="background-color: #77B9C1;" >Modificar Semanas<i class=" fas fa-pencil-alt"></i></button></a>
+</div>
     {% endblock %}

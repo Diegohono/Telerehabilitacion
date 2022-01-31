@@ -1,0 +1,55 @@
+{% extends 'telerehabilitacion/base.html' %}
+{% block content %}
+<head> <title>Detalle Semanal</title></head>
+<a class="Volver" href="javascript:history.back()"> Volver Atrás</a>
+
+
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">    
+        <div class="col col-lg-4">
+            <h5>Semana {{semana}}</h5>
+        </div>
+        <div class="col col-lg-4">
+            <a class="btn btn btn-outline-info btn-sm" href="{% url 'añadir_ejercicio' id=pa semana=semana %}">Añadir nuevo ejercicio</a>
+        </div>
+    </div>
+</div>
+    
+    
+<br>
+    <br>
+<div id="Detalle-Paciente" class="container border border-info">
+    <br>
+    {% for i in ejercicio %}
+        {% if i.programa == programa %}
+        <div class="row">  
+            <div class="col col-lg-4">
+                {{i.ejercicio}}
+            </div>
+            {% if i.completado %}
+            <div class="col col-lg-4">
+                <i class="fas fa-check"></i>
+            </div>
+            <div class="col col-lg-4">
+                <a class="btn btn btn-outline-secondary btn-sm" href="{% url 'mostrar_resultado' pa=pa %}">Mostrar resultado</a>
+            </div> 
+            {% else %}
+            <div class="col col-lg-4">
+                <i class="fas fa-clock"></i>
+             </div>
+             <div class="col col-lg-4">
+                <a class="btn btn btn-outline-secondary btn-sm" href="{% url 'editar_rutina' id=i.pk pa=pa %}">Editar</a>
+            </div> 
+             {% endif %}  
+         
+
+        </div>
+        <br>
+        {% endif %}
+    {% endfor %}
+</div>
+    {% endblock %}

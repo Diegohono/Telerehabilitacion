@@ -1,3 +1,7 @@
+body a{
+  text-decoration: none;
+  
+}
 nav {
   background-color: #26C8DD; /*Se le da el color al nav*/
 }
@@ -165,10 +169,8 @@ nav  ul{
 
 .Volver{
   width: 15%;
-  background-color: #5AC6BF;
   border: 12px;
   border-radius: 12px;
-  color: white;
   margin: 16px 0;
   float: left;
 }

@@ -1,64 +1,41 @@
 {% extends 'telerehabilitacion/base.html' %}
 {% block content %}
 <head> <title>Detalle Semanal</title></head>
-
 <a class="Volver" href="javascript:history.back()"> Volver Atrás</a>
 
+
 <br>
 <br>
 <br>
 <br>
 
-    <h5>Semana 1</h5>
+    <h5>Semana {{semana}}</h5>
+    <br>
+<div id="Detalle-Paciente" class="container border border-info">
+    <br>
+    {% for i in ejercicio %}
+        <div class="row">  
+            <div class="col col-lg-4">
+                {{i.ejercicio}}
+            </div>
+            {% if i.completado %}
+            <div class="col col-lg-4">
+                <i class="fas fa-check"></i>
+            </div>
+            <div class="col col-lg-4">
+                <button type="button" class="btn btn btn-outline-secondary btn-sm" disabled>Ejercicio Completado</button>
+            </div>
+            {% else %}
+            <div class="col col-lg-4">
+                <i class="fas fa-clock"></i>
+             </div>
+             <div class="col col-lg-4">
+                <a class="btn btn btn-outline-secondary btn-sm" href="{% url 'ejercicios' pk=i.pk %}">Detalles</a>
+            </div>
+             {% endif %}            
 
-<div id="Detalle-Paciente" class="container">
-    <div class="row">  
-        <div class="col col-lg-4">
-            Pinza Dedo con Dedo
-        </div>  
-        <div class="col col-lg-8">
-            <a class="botonsT" href="">Detalles</a>
         </div>
-    </div>
-    <div class="row">  
-        <div class="col col-lg-4">
-            Extencion y flexión pulgar
-        </div>  
-        <div class="col col-lg-8">
-            <a class="botonsT" href="">Detalles</a>
-        </div>
-    </div>
-    <div class="row">  
-        <div class="col col-lg-4">
-            Arañita
-        </div>  
-        <div class="col col-lg-8">
-            <a class="botonsT" href="">Detalles</a>
-        </div>
-    </div>
-    <div class="row">  
-        <div class="col col-lg-4">
-            Agarre completo balón
-        </div>  
-        <div class="col col-lg-8">
-            <a class="botonsT" href="">Detalles</a>
-        </div>
-    </div>
-    <div class="row">  
-        <div class="col col-lg-4">
-            Pellizco Plano
-        </div>  
-        <div class="col col-lg-8">
-            <a class="botonsT" href="">Detalles</a>
-        </div>
-    </div>
-    <div class="row">  
-        <div class="col col-lg-4">
-            Pellizco Chasquido
-        </div>  
-        <div class="col col-lg-8">
-            <a class="botonsT" href="">Detalles</a>
-        </div>
-    </div>
+        <br>
+    {% endfor %}
 </div>
     {% endblock %}

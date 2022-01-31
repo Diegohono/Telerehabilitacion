@@ -1,0 +1,29 @@
+{% extends 'telerehabilitacion/base.html' %}
+{% block content %}
+<div>
+  <a class="Volver" href="javascript:history.back()"> Volver Atrás</a>
+    <form class="row g-3" method="POST">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <label for="inputState" class="form-label">Ejercicio</label>
+            <select id="inputState" class="form-select" name="seleccionar_ejercicio">
+              <option selected disabled>Elija un ejercicio</option>
+                 {% for eje in ejercicio %}
+                 <option value="{{eje.id}}" >{{eje}} - {{eje.id_kinesiologo.nombre}}</option>                    
+                {% endfor %}
+          
+            </select>
+        </div>
+        <div class="col-md-6">
+         
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Comentarios adicionales</label>
+          <textarea class="form-control" id="inputAddress" name="comentarios" cols="10" rows="5" ></textarea>
+        </div>
+        <div class="col-12">
+          <button type="submit" name="añadir_ejercicio" class="btn btn-primary">Asignar ejercicio</button>
+        </div>
+      </form>
+</div>
+{% endblock %}

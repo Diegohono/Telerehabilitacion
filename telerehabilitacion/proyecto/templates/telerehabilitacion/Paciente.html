@@ -4,53 +4,30 @@
     <div class="titulo-ejer">
         <h5>Ejercicios</h5>
     </div>
-    <div id="Inicio-Paciente" class="container">
-        
-        <div class="row">  
-            <div class="col col-lg-2">
-                Semana 1
-            </div>  
-            <div class="col col-lg-4">
-                <a class="botonsT" href="Detalle-Semana.html">Ver Detalles</a> <i class="fas fa-check"></i>
+    <br>
+    <div class="container border border-info">
+        {% for i in lista %}
+        <div class="row justify-content-around">
+            
+            <div class="col col-4  ">                
+                Semana {{i}}
             </div>
-        </div>
-        <div class="row">  
-            <div class="col col-lg-2">
-                Semana 2
-            </div>  
-            <div class="col col-lg-4">
-                <a class="botonsT" href="">Ver Detalles</a> <i class="fas fa-check"></i>
+            <div class="col col-4 ">
+                <a class="btn btn btn-outline-secondary btn-sm" href="{% url 'detalle_semana' id=i %}">Ver Rutina</a>
             </div>
-        </div>
-        <div class="row">  
-            <div class="col col-lg-2">
-                Semana 3
-            </div>  
-            <div class="col col-lg-4">
-                <a class="botonsT" href="">Ver Detalles</a> <i class="far fa-clock"></i>
-            </div>
-        </div>
-        <div class="row">  
-            <div class="col col-lg-2">
-                Semana 4
-            </div>  
-            <div class="col col-lg-4">
-                <a class="botonsT" href="">Ver Detalles</a> <i class="far fa-clock"></i>
-            </div>
-        </div>
-        <div class="row">  
-            <div class="col col-lg-2">
-                Semana 5
-            </div>  
-            <div class="col col-lg-4">
-                <a class="botonsT" href="">Ver Detalles</a> <i class="far fa-clock"></i>
-            </div>
-        </div>
+            <br>
+          
     </div>
-    <div class="col">
-        <img class="graficoP" src="img/graficoP.png" alt="grafico" >
+    {% endfor %}
     </div>
-    <div class="boton-ejer">
-        <button class="boton-iniciar-ejer" onclick="location.href= 'inicioejercicios.html'">Iniciar ejercicio de hoy</button>
-    </div>
+  
+    
+    <!--
+        <div class="col">
+            <img class="graficoP" src="img/graficoP.png" alt="grafico" >
+        </div>
+        <div class="boton-ejer">
+            <button class="boton-iniciar-ejer" onclick="location.href= 'inicioejercicios.html'">Iniciar ejercicio de hoy</button>
+        </div>
+        -->
     {% endblock %}
