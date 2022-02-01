@@ -3,16 +3,18 @@
 <head> <title>Resultado </title></head>
 <a class="Volver" href="javascript:history.back()"> Volver Atrás</a>
 <br><br><br>
+{%for i in resultado %}
 <div class="card" style="width: 40rem;" >
     <div class="video card-img-top">
         <h5 class="card-title">Evidencia</h5>
-      <video width="500" height="340" controls><source src="{{resultado.evidencia.url}}" type="video/mp4"></video>
+      <video width="500" height="340" controls><source src="{{i.evidencia.url}}" type="video/mp4"></video>
   </div>
     <div class="card-body">
       <h6>Comentarios del paciente</h6>
-      <p class="card-text">{{resultado.comentarios}}</p>
-     
+      <p class="card-text">{{i.comentarios}}</p>
     </div>
   </div>
 
+
+{%endfor%}
     {% endblock %}

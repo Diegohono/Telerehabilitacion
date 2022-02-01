@@ -294,10 +294,11 @@ def editar_rutina(request,id,pa):
     }
     return render(request, 'telerehabilitacion/editar_rutina.html', data)
 
-#parametro pa = id del paciente
-def mostrar_resultado(request,pa):
-    resultado = get_object_or_404(Resultado,id_paciente=pa)
-
+#parametro pa = id del paciente, id= id de rutina(Asignar_ejercicio)
+def mostrar_resultado(request,pa,id):
+    #resultado = get_object_or_404(Resultado,id_paciente=pa)
+    ejercicio = Asignar_ejercicio.objects.get(id=id)
+    resultado = Resultado.objects.filter(Q(id_paciente=pa),Q(id_ejercicio=ejercicio))
     data={
         'resultado':resultado
     }

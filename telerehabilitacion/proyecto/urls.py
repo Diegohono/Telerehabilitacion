@@ -20,6 +20,6 @@ urlpatterns = [
     url(r'^kine/paciente/(?P<id>[0-9]+)/rutina/$', views.crear_rutina, name="crear_rutina"), 
     url(r'^kine/ejercicio/semana/(?P<semana>[0-9]+)/paciente/(?P<id>[0-9]+)/$', views.añadir_ejercicio, name="añadir_ejercicio"), 
     url(r'^kine/paciente/(?P<pa>[0-9]+)/rutina/editar/(?P<id>[0-9]+)/$', views.editar_rutina, name="editar_rutina"), 
-    url(r'^kine/paciente/(?P<pa>[0-9]+)/resultado/$', views.mostrar_resultado, name="mostrar_resultado"), 
+    url(r'^kine/paciente/(?P<pa>[0-9]+)/ejercicio/(?P<id>[0-9]+)/resultado/$', views.mostrar_resultado, name="mostrar_resultado"), 
     
     ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
