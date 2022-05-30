@@ -1,9 +1,8 @@
 from django.contrib import admin
-#from django.urls import path
-from django.conf.urls import include, url
+from django.urls import include, re_path
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'', include('proyecto.urls')),
-    url(r'^accounts/',include ('django.contrib.auth.urls')),
+    re_path(r'^admin/', admin.site.urls),
+    re_path(r'', include('proyecto.urls')),
+    re_path(r'^accounts/',include ('django.contrib.auth.urls')),
 ]

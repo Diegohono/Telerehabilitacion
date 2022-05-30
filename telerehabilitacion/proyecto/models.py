@@ -1,11 +1,11 @@
 from distutils.command.upload import upload
-from turtle import update
+#from turtle import update
 from django.db import models
 from django.contrib.auth.models import User
 import datetime
 from django.db.models.deletion import CASCADE
 from django.utils import timezone
-from pandas.core.algorithms import mode
+#from pandas.core.algorithms import mode
 
 # Create your models here.       
 class Usuario(models.Model):

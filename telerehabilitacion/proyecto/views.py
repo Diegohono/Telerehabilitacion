@@ -2,10 +2,10 @@ from ast import Try
 from distutils.command.upload import upload
 from http.client import REQUEST_ENTITY_TOO_LARGE
 from io import UnsupportedOperation
-from turtle import up
+#from turtle import up
 from webbrowser import get
 from xmlrpc.client import DateTime
-from django import views
+#from django import views
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth import authenticate, login
