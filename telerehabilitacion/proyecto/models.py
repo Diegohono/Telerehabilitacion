@@ -17,7 +17,7 @@ class Usuario(models.Model):
     fecha_nacimiento =models.DateField()
     telefono = models.IntegerField()
     ciudad = models.CharField(max_length=20)
-    foto = models.ImageField(upload_to="", null=True)
+    foto = models.ImageField(upload_to="", blank=True)
     class Meta:
         abstract = True
 
@@ -38,7 +38,7 @@ class Familiar(Usuario):
 class Ejercicio(models.Model):
     nombre_ejercicio= models.CharField(max_length=30)
     detalle_ejercicio = models.TextField(max_length=150)
-    video = models.FileField(upload_to='', null=True)
+    video = models.FileField(upload_to='video', blank=True)
     id_kinesiologo = models.ForeignKey(Kinesiologo, on_delete=models.CASCADE)
     def __str__(self):
         return self.nombre_ejercicio
@@ -66,7 +66,7 @@ class Asignar_ejercicio(models.Model):
 class Resultado(models.Model):
     comentarios = models.TextField(max_length=300)
     completado = models.BooleanField()
-    evidencia = models.FileField(upload_to='video', null=True)
+    evidencia = models.FileField(upload_to='video', blank=True)
     id_paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
     id_ejercicio = models.ForeignKey(Asignar_ejercicio, on_delete=models.CASCADE)
 
@@ -76,6 +76,6 @@ class Resultado(models.Model):
 class Ejercicio_Pomo(models.Model):
     nombre_ejercicio= models.CharField(max_length=30)
     detalle_ejercicio = models.TextField(max_length=150)
-    video = models.FileField(upload_to='video', null=True)
+    video = models.FileField(upload_to='video', blank=True)
     def __str__(self):
         return self.nombre_ejercicio

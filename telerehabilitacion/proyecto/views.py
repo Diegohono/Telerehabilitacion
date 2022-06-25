@@ -7,8 +7,9 @@ from webbrowser import get
 from xmlrpc.client import DateTime
 #from django import views
 from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import get_object_or_404, redirect, render, HttpResponse
 from django.contrib.auth import authenticate, login
+from .forms import Ejercicio1
 from .models import Ejercicio, Kinesiologo, Paciente, Programa, Resultado, Usuario, Asignar_ejercicio
 from django.db.models import Q
 import datetime
@@ -39,20 +40,33 @@ def index(request):
     return render(request, 'telerehabilitacion/Index.html',{})
 
 #vista donde el kinesiologo crea los ejercicios
+#def crear_ejercicios(request):
+#    try:
+#        if request.method == 'POST':
+#            eje = Ejercicio()
+#            eje.nombre_ejercicio = request.POST.get('nombre') 
+#            eje.video = request.POST.get('Video') 
+#            eje.detalle_ejercicio = request.POST.get('Detalle-ejercicio')
+#            U = request.user
+#            K = Kinesiologo.objects.get(userD = U)
+#            eje.id_kinesiologo = K
+#            eje.save()
+#    except:
+#        pass
+#    return render(request, 'telerehabilitacion/CrearEjercicios.html',{})
+
+#PRUEBA CREAR EJERCICIO
 def crear_ejercicios(request):
-    try:
-        if request.method == 'POST':
-            eje = Ejercicio()
-            eje.nombre_ejercicio = request.POST.get('nombre') 
-            eje.video = request.POST.get('Video') 
-            eje.detalle_ejercicio = request.POST.get('Detalle-ejercicio')
-            U = request.user
-            K = Kinesiologo.objects.get(userD = U)
-            eje.id_kinesiologo = K
-            eje.save()
-    except:
-        pass
-    return render(request, 'telerehabilitacion/CrearEjercicios.html',{})
+    #all_video=Ejercicio1.objects.all()
+    form=Ejercicio1()
+    if request.method == "POST":
+        form=Ejercicio1(data=request.POST,files=request.FILES)
+    if form.is_valid():
+        form.save()
+        return HttpResponse("<h1> Uploaded successfully </h1>")
+    else:
+        form=Ejercicio1()
+    return render(request,'telerehabilitacion/CrearEjercicios.html',{"form":form})
 
 #vista kinesilogo
 def kine(request):
