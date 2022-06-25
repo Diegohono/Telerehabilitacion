@@ -1,6 +1,6 @@
 {% extends 'telerehabilitacion/base.html' %}
 {% block content %}
-<head><title>Crear Ejercicios</title></head>
+    <head><title>Crear Ejercicios</title></head>
     <a class="Volver" href="javascript:history.back()"> Volver Atrás</a>
     <div class="mt-5">
         <form id="nuevopaciente" action="." method="post" enctype="multipart/form-data">
@@ -28,7 +28,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="segunda-columna-ejer">
-                            <!-- Consultar por categoria
+                             Consultar por categoria
                          <div class="item">
                                 <label for="Categoria">Categoria</label>
                                 <select name="Categoria">
@@ -54,4 +54,4 @@
     </form>
     <a href="{% url 'listar_ejercicios' %}"><button class="Crear-E" style="background-color: #adcdd1;" >Ver tus ejercicios<i class=" fas fa-eye"></i></button></a>-->
 
-    {% endblock %}
+{% endblock %}

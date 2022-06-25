@@ -63,10 +63,11 @@ def crear_ejercicios(request):
         form=Ejercicio1(data=request.POST,files=request.FILES)
     if form.is_valid():
         form.save()
-        return HttpResponse("<h1> Uploaded successfully </h1>")
+        return redirect("/lista/ejercicios")
     else:
         form=Ejercicio1()
     return render(request,'telerehabilitacion/CrearEjercicios.html',{"form":form})
+
 
 #vista kinesilogo
 def kine(request):
@@ -259,31 +260,44 @@ def añadir_ejercicio(request,id,semana):
     return render(request, 'telerehabilitacion/añadir_ejercicio.html',data)
 
 #parametros id = id del ejercicio
-def modificar_ejercicio(request,id):
-    ejercicio = get_object_or_404(Ejercicio, id=id)
-    try:
-        if request.method == 'POST':
+#def modificar_ejercicio(request,id):
+#    ejercicio = get_object_or_404(Ejercicio, id=id)
+#    try:
+#        if request.method == 'POST':
             
-            ejercicio.nombre_ejercicio = request.POST.get('nombre') 
-            ejercicio.video = request.POST.get('Video') 
-            ejercicio.detalle_ejercicio = request.POST.get('Detalle-ejercicio')
-            U = request.user
-            K = Kinesiologo.objects.get(userD = U)
-            ejercicio.id_kinesiologo = K
-            ejercicio.save()
-            return redirect(to='listar_ejercicios')
-    except:
-        pass
-    data={
-        'ejercicio':ejercicio,
-    }
-    return render(request, 'telerehabilitacion/modificar_ejercicio.html', data)
+#            ejercicio.nombre_ejercicio = request.POST.get('nombre') 
+#            ejercicio.video = request.POST.get('Video') 
+#            ejercicio.detalle_ejercicio = request.POST.get('Detalle-ejercicio')
+#            U = request.user
+#            K = Kinesiologo.objects.get(userD = U)
+#            ejercicio.id_kinesiologo = K
+#            ejercicio.save()
+#            return redirect(to='listar_ejercicios')
+#    except:
+#        pass
+#    data={
+#        'ejercicio':ejercicio,
+#    }
+#    return render(request, 'telerehabilitacion/modificar_ejercicio.html', data)
+
+def modificar_ejercicio(request,id):
+    ejercicio = Ejercicio.objects.get(pk=id)
+    form = Ejercicio1(request.POST or None, request.FILES or None, instance=ejercicio)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_ejercicios')
+    return render(request, 'telerehabilitacion/modificar_ejercicio.html',{'ejercicio': ejercicio,'form':form})
 
 #parametros id = id del ejercicio
+#def eliminar_ejercicio(request,id):
+#    ejercicio = get_object_or_404(Ejercicio, id=id)
+#    ejercicio.delete()
+#    return redirect(to='listar_ejercicios')
+
 def eliminar_ejercicio(request,id):
-    ejercicio = get_object_or_404(Ejercicio, id=id)
-    ejercicio.delete()
-    return redirect(to='listar_ejercicios')
+	ejercicio = Ejercicio.objects.get(pk=id)
+	ejercicio.delete()
+	return redirect('listar_ejercicios')
 
 #parametros id = id de la rutina(Asignar_ejercicio), pa = id del paciente para direccionar una vez editada
 def editar_rutina(request,id,pa):

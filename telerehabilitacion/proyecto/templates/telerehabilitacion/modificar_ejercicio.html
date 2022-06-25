@@ -4,7 +4,27 @@
     <a class="Volver" href="javascript:history.back()"> Volver Atrás</a>
     <form id="nuevopaciente"  method="POST">
         {% csrf_token %}
-        <div class="container">
+        <div class="fieldWrapper">
+            <label> Nombre ejercicio: </label>
+            {{ form.nombre_ejercicio }}
+        </div>
+        <div class="fieldWrapper">
+            <label> Detalle ejercicio: </label>
+            {{ form.detalle_ejercicio }}
+        </div>
+        <!--<div class="card" style="width: 40rem;" >-->
+            <div class="video card-img-top">
+            <video width="500" height="340" controls><source src="{{ejercicio.video.url}}" type="video/mp4"></video>
+        <!--</div>-->
+        <div class="fieldWrapper">
+            <label>Video:</label>
+            {{ form.video }}
+        </div>
+        <div class="fieldWrapper">
+            <label>Id Kinesiologo:</label>
+            {{ form.id_kinesiologo }}
+        </div>
+        <!--<div class="container">
             <div class="row">
                 <div class="col">
                     <div class="primera-columna-ejer">
@@ -28,7 +48,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="segunda-columna-ejer">
-                            <!-- Consultar por categoria
+                             Consultar por categoria
                          <div class="item">
                                 <label for="Categoria">Categoria</label>
                                 <select name="Categoria">
@@ -38,7 +58,7 @@
                                     <option value="3">Ejemplo3</option>
                                 </select>
                             </div>
-                                -->
+                                
                             <div class="item">
                                 <label for="Detalle-ejercicio">Detalles Ejercicios</label>
                                 <textarea name="Detalle-ejercicio" id="Detalle-ejercicio" cols="40" rows="10" >{{ejercicio.detalle_ejercicio}}</textarea>
@@ -46,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div>-->
                     <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Modificar
