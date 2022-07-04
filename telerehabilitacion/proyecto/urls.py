@@ -5,6 +5,7 @@ from django.conf import settings
 urlpatterns = [ 
     re_path(r'^$', views.index, name="Inicio"), 
     re_path(r'^paciente/$', views.paciente, name="Paciente"), 
+    re_path(r'^test/$', views.Test, name="test"), 
     re_path(r'^crear_ejercicio/$', views.crear_ejercicios, name="Crear_Ejercicio"), 
     re_path(r'^kine/$', views.kine, name="kine"), 
     re_path(r'^Crear_paciente/$', views.crear_paciente, name="crear_paciente"),
