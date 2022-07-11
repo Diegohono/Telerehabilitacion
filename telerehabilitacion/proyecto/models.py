@@ -1,11 +1,11 @@
 from distutils.command.upload import upload
-from turtle import update
+#from turtle import update
 from django.db import models
 from django.contrib.auth.models import User
 import datetime
 from django.db.models.deletion import CASCADE
 from django.utils import timezone
-from pandas.core.algorithms import mode
+#from pandas.core.algorithms import mode
 
 # Create your models here.       
 class Usuario(models.Model):
@@ -17,7 +17,7 @@ class Usuario(models.Model):
     fecha_nacimiento =models.DateField()
     telefono = models.IntegerField()
     ciudad = models.CharField(max_length=20)
-    foto = models.ImageField(upload_to="", null=True)
+    foto = models.ImageField(upload_to="", blank=True, null=True)
     class Meta:
         abstract = True
 
@@ -38,7 +38,7 @@ class Familiar(Usuario):
 class Ejercicio(models.Model):
     nombre_ejercicio= models.CharField(max_length=30)
     detalle_ejercicio = models.TextField(max_length=150)
-    video = models.FileField(upload_to='', null=True)
+    video = models.FileField(upload_to='video', null=True)
     id_kinesiologo = models.ForeignKey(Kinesiologo, on_delete=models.CASCADE)
     def __str__(self):
         return self.nombre_ejercicio

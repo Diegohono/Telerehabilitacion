@@ -1,10 +1,18 @@
 {% extends 'telerehabilitacion/base.html' %}
 {% block content %}
-<head><title>Crear Ejercicios</title></head>
+    <head>
+        <title>Crear Ejercicios</title>
+    </head>
     <a class="Volver" href="javascript:history.back()"> Volver Atrás</a>
-    <form id="nuevopaciente"  method="POST">
-        {% csrf_token %}
-        <div class="container">
+    <div class="mt-5">
+        <form id="nuevopaciente" action="." method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button class="btn btn-success btn-lg">Upload</button>
+        </form>
+    </div>
+
+        <!--<div class="container">
             <div class="row">
                 <div class="col">
                     <div class="primera-columna-ejer">
@@ -22,7 +30,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="segunda-columna-ejer">
-                            <!-- Consultar por categoria
+                             Consultar por categoria
                          <div class="item">
                                 <label for="Categoria">Categoria</label>
                                 <select name="Categoria">
@@ -32,7 +40,7 @@
                                     <option value="3">Ejemplo3</option>
                                 </select>
                             </div>
-                                -->
+                                
                             <div class="item">
                                 <label for="Detalle-ejercicio">Detalles Ejercicios</label>
                                 <textarea name="Detalle-ejercicio" id="Detalle-ejercicio" cols="40" rows="10" ></textarea>
@@ -46,6 +54,6 @@
             </div>
         </div>
     </form>
-    <a href="{% url 'listar_ejercicios' %}"><button class="Crear-E" style="background-color: #adcdd1;" >Ver tus ejercicios<i class=" fas fa-eye"></i></button></a>
+    <a href="{% url 'listar_ejercicios' %}"><button class="Crear-E" style="background-color: #adcdd1;" >Ver tus ejercicios<i class=" fas fa-eye"></i></button></a>-->
 
-    {% endblock %}
+{% endblock %}

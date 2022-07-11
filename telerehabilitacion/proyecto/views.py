@@ -2,16 +2,20 @@ from ast import Try
 from distutils.command.upload import upload
 from http.client import REQUEST_ENTITY_TOO_LARGE
 from io import UnsupportedOperation
-from turtle import up
+#from turtle import up
 from webbrowser import get
 from xmlrpc.client import DateTime
-from django import views
+#from django import views
 from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import get_object_or_404, redirect, render, HttpResponse
 from django.contrib.auth import authenticate, login
+from .forms import Ejercicio1
 from .models import Ejercicio, Kinesiologo, Paciente, Programa, Resultado, Usuario, Asignar_ejercicio
 from django.db.models import Q
 import datetime
+import cv2
+import threading
+from django.http import StreamingHttpResponse
 # Create your views here.
 
 #pagina de inicio de sesion
@@ -39,20 +43,67 @@ def index(request):
     return render(request, 'telerehabilitacion/Index.html',{})
 
 #vista donde el kinesiologo crea los ejercicios
+#def crear_ejercicios(request):
+#    try:
+#        if request.method == 'POST':
+#            eje = Ejercicio()
+#            eje.nombre_ejercicio = request.POST.get('nombre') 
+#            eje.video = request.POST.get('Video') 
+#            eje.detalle_ejercicio = request.POST.get('Detalle-ejercicio')
+#            U = request.user
+#            K = Kinesiologo.objects.get(userD = U)
+#            eje.id_kinesiologo = K
+#            eje.save()
+#    except:
+#        pass
+#    return render(request, 'telerehabilitacion/CrearEjercicios.html',{})
+
+#PRUEBA CREAR EJERCICIO
 def crear_ejercicios(request):
+    #all_video=Ejercicio1.objects.all()
+    form=Ejercicio1()
+    if request.method == "POST":
+        form=Ejercicio1(data=request.POST,files=request.FILES)
+    if form.is_valid():
+        form.save()
+        return redirect("/lista/ejercicios")
+    else:
+        form=Ejercicio1()
+    return render(request,'telerehabilitacion/CrearEjercicios.html',{"form":form})
+
+def Test(request):
     try:
-        if request.method == 'POST':
-            eje = Ejercicio()
-            eje.nombre_ejercicio = request.POST.get('nombre') 
-            eje.video = request.POST.get('Video') 
-            eje.detalle_ejercicio = request.POST.get('Detalle-ejercicio')
-            U = request.user
-            K = Kinesiologo.objects.get(userD = U)
-            eje.id_kinesiologo = K
-            eje.save()
+        cam = VideoCamera()
+        return StreamingHttpResponse(gen(cam), content_type="multipart/x-mixed-replace;boundary=frame")
     except:
         pass
-    return render(request, 'telerehabilitacion/CrearEjercicios.html',{})
+    return render(request, 'test.html')
+
+#to capture video class
+class VideoCamera(object):
+    def __init__(self):
+        self.video = cv2.VideoCapture(0)
+        (self.grabbed, self.frame) = self.video.read()
+        threading.Thread(target=self.update, args=()).start()
+
+    def __del__(self):
+        self.video.release()
+
+    def get_frame(self):
+        image = self.frame
+        _, jpeg = cv2.imencode('.jpg', image)
+        return jpeg.tobytes()
+
+    def update(self):
+        while True:
+            (self.grabbed, self.frame) = self.video.read()
+
+def gen(camera):
+    while True:
+        frame = camera.get_frame()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+
 
 #vista kinesilogo
 def kine(request):
@@ -245,31 +296,44 @@ def añadir_ejercicio(request,id,semana):
     return render(request, 'telerehabilitacion/añadir_ejercicio.html',data)
 
 #parametros id = id del ejercicio
-def modificar_ejercicio(request,id):
-    ejercicio = get_object_or_404(Ejercicio, id=id)
-    try:
-        if request.method == 'POST':
+#def modificar_ejercicio(request,id):
+#    ejercicio = get_object_or_404(Ejercicio, id=id)
+#    try:
+#        if request.method == 'POST':
             
-            ejercicio.nombre_ejercicio = request.POST.get('nombre') 
-            ejercicio.video = request.POST.get('Video') 
-            ejercicio.detalle_ejercicio = request.POST.get('Detalle-ejercicio')
-            U = request.user
-            K = Kinesiologo.objects.get(userD = U)
-            ejercicio.id_kinesiologo = K
-            ejercicio.save()
-            return redirect(to='listar_ejercicios')
-    except:
-        pass
-    data={
-        'ejercicio':ejercicio,
-    }
-    return render(request, 'telerehabilitacion/modificar_ejercicio.html', data)
+#            ejercicio.nombre_ejercicio = request.POST.get('nombre') 
+#            ejercicio.video = request.POST.get('Video') 
+#            ejercicio.detalle_ejercicio = request.POST.get('Detalle-ejercicio')
+#            U = request.user
+#            K = Kinesiologo.objects.get(userD = U)
+#            ejercicio.id_kinesiologo = K
+#            ejercicio.save()
+#            return redirect(to='listar_ejercicios')
+#    except:
+#        pass
+#    data={
+#        'ejercicio':ejercicio,
+#    }
+#    return render(request, 'telerehabilitacion/modificar_ejercicio.html', data)
+
+def modificar_ejercicio(request,id):
+    ejercicio = Ejercicio.objects.get(pk=id)
+    form = Ejercicio1(request.POST or None, request.FILES or None, instance=ejercicio)
+    if form.is_valid():
+        form.save()
+        return redirect('listar_ejercicios')
+    return render(request, 'telerehabilitacion/modificar_ejercicio.html',{'ejercicio': ejercicio,'form':form})
 
 #parametros id = id del ejercicio
+#def eliminar_ejercicio(request,id):
+#    ejercicio = get_object_or_404(Ejercicio, id=id)
+#    ejercicio.delete()
+#    return redirect(to='listar_ejercicios')
+
 def eliminar_ejercicio(request,id):
-    ejercicio = get_object_or_404(Ejercicio, id=id)
-    ejercicio.delete()
-    return redirect(to='listar_ejercicios')
+	ejercicio = Ejercicio.objects.get(pk=id)
+	ejercicio.delete()
+	return redirect('listar_ejercicios')
 
 #parametros id = id de la rutina(Asignar_ejercicio), pa = id del paciente para direccionar una vez editada
 def editar_rutina(request,id,pa):
